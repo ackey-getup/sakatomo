@@ -50,7 +50,7 @@ git cloneしてから、ローカルで動作をさせるまでに必要なコ�
 | nickname           | string  | null: false |
 | email              | string  | null: false |
 | encrypted_password | string  | null: false |
-| age                | integer | null: false |
+| birthday           | date    | null: false |
 | position           | integer |             |
 | play_style         | integer | null: false |
 | play_experience    | integer |             |

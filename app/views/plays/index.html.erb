@@ -1,0 +1,39 @@
+<main class="main">
+  <div class="inner">
+    <%# ログインしているときは以下を表示する %>
+    <% if user_signed_in? %>
+      <div class="greeting">
+        <%= link_to "こんにちは、#{current_user.nickname}さん", root_path, class: :greeting__link%>
+      </div>
+    <% end %>
+    <%# // ログインしているときは上記を表示する %>
+    <div class="card__wrapper">
+      <h2>gmap</h2>
+      <div id='map'></div>
+        <style>
+          #map {
+            height: 600px;
+            width: 600px;
+          }
+        </style>
+
+        <script>
+          let map
+          function initMap(){
+            geocoder = new google.maps.Geocoder()
+            map = new google.maps.Map(document.getElementById('map'), {
+                  center: {lat: 40.7828, lng:-73.9653},
+                  zoom: 12,
+             });
+            marker = new google.maps.Marker({
+                    position:  {lat: 40.7828, lng:-73.9653},
+                    map: map
+             });
+          }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5dVMLhO20pHvpNtRxq6XiQAz_9jhv1aM&callback=initMap" async defer></script>
+
+      <%# 投稿機能実装後、部分テンプレートでプロトタイプ投稿一覧を表示する %>
+    </div>
+  </div>
+</main>

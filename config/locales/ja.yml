@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        encrypted_password: パスワード（確認用）
+        nickname: ニックネーム
+        birthday: 生年月日
+        position: ポジション
+        play_style: プレースタイル
+        play_experience: プレー歴
+        main_play_area: プレー地域

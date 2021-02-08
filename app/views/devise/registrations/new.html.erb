@@ -1,0 +1,77 @@
+<div class="main">
+  <div class="inner">
+    <div class="form__wrapper">
+      <h2 class="page-heading">プレイヤー新規登録</h2>
+
+        <%# 「モデル名」にはUserモデルであれば@userを渡しましょう。%>
+        <%# 「新規登録機能へのパス」は、devise導入後にrails routesを実行してdevise/registrations#createへのパスを確認し、記載してください。 %>
+        <%= form_with model: @user, url: user_registration_path, local: true do |f| %>
+
+        <%# 下記エラーメッセージ の表示 %>
+        <%= render 'shared/error_messages', model: f.object %>
+        <%# //上記エラーメッセージ の表示 %%>
+
+        <div class="field">
+          <%= f.label :email, "メールアドレス" %><br />
+          <%= f.email_field :email, autofocus: true, placeholder:"PC・携帯どちらでも可", autocomplete: "email" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "パスワード（6文字以上）" %><br />
+          <%= f.password_field :password, autocomplete: "new-password", minlength: "6", placeholder: "英字と数字の両方を含めて設定してください" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password, "パスワード再入力" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder:"同じパスワードを入力して下さい" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :nickname, "ニックネーム" %><br />
+          <%= f.text_field :nickname %>
+        </div>
+
+        <div class="field">
+          <%= f.label :birthday, "生年月日" %><br />
+          <div class="birth-select">
+            <%= raw sprintf(
+                  f.date_select(
+                    :birthday,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: 1930,
+                    end_year: (Time.now.year - 5),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :position, "ポジション" %><br />
+          <%= f.collection_select(:position_id, Position.all, :id, :name, {} ) %>
+        </div>
+
+        <div class="field">
+          <%= f.label :play_style, "プレースタイル" %><br />
+          <%= f.collection_select(:play_style_id, PlayStyle.all, :id, :name, {} ) %>
+        </div>
+
+        <div class="field">
+          <%= f.label :play_experience, "プレー年数" %><br />
+          <%= f.collection_select(:play_experience_id, PlayExperience.all, :id, :name, {} ) %>
+        </div>
+
+        <div class="field">
+          <%= f.label :main_play_area, "プレー地域" %><br />
+          <%= f.collection_select(:main_play_area_id, MainPlayArea.all, :id, :name, {} ) %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "新規登録", class: :form__btn  %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
