@@ -1,0 +1,39 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "#{@user.nickname}さんの情報"%>
+      </h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">年齢</th>
+            <td class="table__col2"><%= @user.birthday %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">ポジション</th>
+            <td class="table__col2"><%= @user.position.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">プレースタイル</th>
+            <td class="table__col2"><%= @user.play_style.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">プレー歴</th>
+            <td class="table__col2"><%= @user.play_experience.name %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">プレーエリア</th>
+            <td class="table__col2"><%= @user.main_play_area.name %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%= "#{@user.nickname}のプロトタイプ"%>
+      </h2>
+      <div class="user__card">
+        <%= render partial: "playzones/plays", collection: @plays %>
+      </div>
+    </div>
+  </div>
+</div>

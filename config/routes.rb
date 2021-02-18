@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root to: 'plays#index'
   resources :plays
   resources :playzones, only: [:index, :show]
+  resources :users, only: :show
 end
