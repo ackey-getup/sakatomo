@@ -2,6 +2,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      play: プレー
     attributes:
       user:
         email: メールアドレス
@@ -13,3 +14,8 @@ ja:
         play_style: プレースタイル
         play_experience: プレー歴
         main_play_area: プレー地域
+      play:
+        title: タイトル
+        ground_style_id: グラウンド
+        place: 場所
+        

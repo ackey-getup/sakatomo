@@ -65,31 +65,21 @@ git cloneしてから、ローカルで動作をさせるまでに必要なコ�
 
 ## playsテーブル
 
-|   Column  |    Type    |            Options              |
-| --------- | ---------- | ------------------------------- |
-| user      | references | null: false, foreign_keys: true |
-| time      | integer    | null: false                     |
-| play_zone | references | null: false, foreign_keys: true |
-| detail    | string     |                                 |
+|    Column    |    Type    |            Options              |
+| ------------ | ---------- | ------------------------------- |
+| user         | references | null: false, foreign_keys: true |
+| time         | integer    | null: false                     |
+| detail       | string     |                                 |
+| place        | string     | null: false                     |
+| ground-style | string     | null: false                     |
+| latitude     | float      | null: false                     |
+| longitude    | float      | null: false                     |
 
 ### Associations
 
 - belongs_to :user
-- belongs_to :play_zone
 - has_many   :comments
 - has_many   :favorites
-
-## play_zonesテーブル
-
-|    Column    |  Type  |   Options   |
-| ------------ | ------ | ----------- |
-| name         | string | null: false |
-| place        | string | null: false |
-| ground-style | string | null: false |
-
-### Associations
-- has_many   :plays
-- belongs_to :favorite
 
 ## commentsテーブル
 
@@ -127,4 +117,3 @@ git cloneしてから、ローカルで動作をさせるまでに必要なコ�
 
 - belongs_to :user
 - belongs_to :play
-- belongs_to :play_zone

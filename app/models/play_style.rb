@@ -5,7 +5,7 @@ class PlayStyle < ActiveHash::Base
     { id: 3, name: 'のんびり' },
     { id: 4, name: 'エンジョイ' },
     { id: 5, name: '本気' }
-]
+  ]
 
   include ActiveHash::Associations
   has_many :users

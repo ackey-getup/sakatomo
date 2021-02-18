@@ -133,6 +133,18 @@ input{
 
 /* メイン */
 
+.card__body{
+  border: 1px solid black;
+  margin: 5px;
+  width: 100%;
+}
+
+.error-message {
+  font-size: 1.3vw;
+  list-style: circle;
+  color: rgb(182, 48, 0);
+}
+
 .open-soccer{
   border: 1px red solid;
   margin: 5px;
@@ -171,8 +183,8 @@ input{
   min-height: calc(100vh - 161px);
 }
 .card {
-  width: calc((100% - 50px) / 3);
-  margin-bottom: 40px;
+  width: 80%;
+  margin: 5px auto;
 }
 .card__img {
   margin-bottom: 16px;
@@ -257,9 +269,9 @@ input{
   padding-left: 20px;
 }
 
-.comments_list{
-  list-style-type: square;
+.plays_list{
   padding-bottom: 5px;
+  border: 1px solid black;
 }
 
 .comment_user{
