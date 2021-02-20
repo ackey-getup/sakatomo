@@ -1,15 +1,15 @@
 <div class="card">
-  <% @plays.each do |play| %>
     <div class="card__body"> 
       <div class="card_left">
-        <%= link_to "#{play.title}@#{play.place}", root_path, class: :card__title%>
-        <%= link_to play.user.nickname, root_path, class: :card__user %>
-        <%= l play.published_at, format: :short %>
-        <%= play.ground_style.name %>
+        <%= link_to "#{plays.title}@#{plays.place}", play_path(plays.id), class: :card__title%>
+        <%= link_to plays.user.nickname, root_path, class: :card__user %>
+        <%= l plays.published_at, format: :short %>
+        <%= plays.ground_style.name %>
+        <%= plays.area.name %>
         <p class="card__summary">
-          <%= play.detail %>
+          <%= plays.detail %>
         </p>
-        <%= l play.created_at, format: :short %>
+        <%= l plays.created_at, format: :short %>
       </div>
       <%#登録されたマップの表示%>
       <div class="card_map">
@@ -21,15 +21,15 @@
         <script type="text/javascript">
           function initMap() {
         //#latitude,longitudeから位置を特定
-            var test ={lat: <%=play.latitude%>, lng: <%=play.longitude%> };
+            var test = { lat: <%= plays.latitude %>, lng: <%= plays.longitude %> };
             var map = new google.maps.Map(document.getElementById('map'), {
-                      zoom: 13, 
+                      zoom: 14, 
                       center: test
                       });
             var transitLayer = new google.maps.TransitLayer();
             transitLayer.setMap(map);
 
-            var contentString = '住所：<%= play.place %>';
+            var contentString = '<%= plays.place %>';
             var infowindow = new google.maps.InfoWindow({
               content: contentString
             });
@@ -46,9 +46,8 @@
             });
           }
         </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyBJFru03FJZIcE67jhsD1qGaXYjCB9mpfQ&callback=initMap"></script>    
+        <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%=ENV['GOOGLEMAP_API_KEY']%>&callback=initMap"></script>    
       </div>
       <%#//上記登録されたマップの表示%>
     </div>
-  <% end %>
 </div>

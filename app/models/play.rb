@@ -9,9 +9,11 @@ class Play < ApplicationRecord
     validates :published_at
     validates :place
     validates :ground_style_id, numericality: { other_than: 1, message: "を選択してください" }
+    validates :area_id, numericality: { other_than: 1, message: "を選択してください" }
     validates :published_at
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :ground_style
+    belongs_to :area
 end

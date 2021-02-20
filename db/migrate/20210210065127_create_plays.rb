@@ -5,6 +5,7 @@ class CreatePlays < ActiveRecord::Migration[6.0]
       t.text       :title,           null: false
       t.datetime   :published_at,    null: false
       t.string     :place,           null: false
+      t.integer    :area_id,         null: false
       t.integer    :ground_style_id, null: false
       t.string     :detail
       t.float      :latitude,        null: false

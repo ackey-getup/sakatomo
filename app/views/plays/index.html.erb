@@ -1,12 +1,5 @@
 <main class="main">
   <div class="inner">
-    <%# ログインしているときは以下を表示する %>
-    <% if user_signed_in? %>
-      <div class="greeting">
-        <%= link_to "#{current_user.nickname}さん", root_path, class: :greeting__link%>
-      </div>
-    <% end %>
-    <%# // ログインしているときは上記を表示する %>
     <div class="card__wrapper">
       <%= image_tag "さかともの輪.jpg", size: "400x400" %>
       <h1>「さかとも！」へようこそ！</h1>

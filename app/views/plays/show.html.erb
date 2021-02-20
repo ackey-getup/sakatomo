@@ -1,0 +1,92 @@
+<main class="main">
+  <div class="inner">
+    <div class="play__wrapper">
+      <p class="play__hedding">
+        <%= @play.title %>
+      </p>
+      <%= link_to @play.user.nickname, user_path(@play.user), class: :play__user %>
+      <%# プレーの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+      <% if current_user.id == @play.user_id %>
+        <div class="play__manage">
+          <%= link_to "編集する", edit_play_path(@play.id), class: :play__btn %>
+          <%= link_to "削除する", play_path(@play.id), method: :delete, class: :play__btn %>
+        </div>
+      <% end %>
+      <p class="show__area">
+        <%= @play.area.name %>
+      </p>
+      <%# // プレーの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <div class="play__map">
+        <div id="map"></div>
+        <style type="text/css">
+          #map { height: 400px;
+                 width: 500px; }
+        </style>
+        <script type="text/javascript">
+          function initMap() {
+        //#latitude,longitudeから位置を特定
+            var test = { lat: <%= @play.latitude %>, lng: <%= @play.longitude %> };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 15, 
+                      center: test
+                      });
+            var transitLayer = new google.maps.TransitLayer();
+            transitLayer.setMap(map);
+
+            var contentString = '<%= @play.place %>';
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
+         //#Map上の指定した位置にピンを挿して表示する
+            var marker = new google.maps.Marker({
+                          position:test,
+                          map: map,
+                          title: contentString
+                         });
+
+            marker.addListener('click', function() {
+              infowindow.open(map, marker);
+            });
+          }
+        </script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= "#{ENV['GOOGLEMAP_API_KEY']}" %>&callback=initMap"></script>    
+
+      </div>
+      <div class="play__body">
+        <div class="play__detail">
+          <p class="detail__title"><%= "#{@play.place}(#{@play.ground_style.name})" %></p>
+          <p class="detail__message">
+            <%= l @play.published_at, format: :short %>
+          </p>
+        </div>
+        <div class="play__detail">
+          <p class="detail__message">
+            <%= @play.detail %>
+          </p>
+        </div>
+      </div>
+      <div class="play__comments">
+        <%# ログインしているユーザーには以下のコメント投稿フォームを表示する %>
+          <%# <%= form_with local: true do |f|%>
+            <div class="field">
+              <%# <%= f.label :hoge, "コメント" %><br />
+              <%# <%= f.text_field :hoge %>
+            </div>
+            <div class="actions">
+              <%# <%= f.submit "送信する", class: :form__btn  %>
+            </div>
+          <%# <% end %> 
+        <%# // ログインしているユーザーには上記を表示する %>
+        <ul class="comments_lists">
+          <%# 投稿に紐づくコメントを一覧する処理を記述する %>
+            <li class="comments_list">
+              <%# <%= " コメントのテキスト "%>
+              <%# <%= link_to "（ ユーザー名 ）", root_path, class: :comment_user %>
+            </li>
+          <%# // 投稿に紐づくコメントを一覧する処理を記述する %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>

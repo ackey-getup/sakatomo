@@ -133,6 +133,10 @@ input{
 
 /* メイン */
 
+.show__area{
+  text-align: center;
+}
+
 .card__body{
   border: 1px solid black;
   margin: 5px;
@@ -217,27 +221,27 @@ input{
 }
 
 /* 詳細ページ */
-.prototype__wrapper{
+.play__wrapper{
   min-height: calc(100vh - 161px);
 }
-.prototype__hedding{
+.play__hedding{
   font-size: 24px;
   font-weight: bold;
   text-align: center;
 }
-.prototype__user{
+.play__user{
   display: block;
   font-size: 16px;
   color: #999;
   text-align: center;
   text-decoration: underline;
 }
-.prototype__image{
+.play__map{
   width: 40%;
   margin: 0 auto;
   padding: 16px 0;
 }
-.prototype__detail{
+.play__detail{
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -247,12 +251,12 @@ input{
   font-size: 20px;
   font-weight: bold;
 }
-.prototype__manage{
+.play__manage{
   display: flex;
   justify-content: center;
   padding-top: 16px;
 }
-.prototype__btn{
+.play__btn{
   display: block;
   padding: 0.4em 1.6em;
   font-size: 0.4em;
@@ -264,12 +268,12 @@ input{
   transition: 0.4s ease;
   margin: 0 4px;
 }
-.prototype__btn:hover{
+.play__btn:hover{
   color: #fff;
   background: #999;
 }
 
-.prototype__comments{
+.play__comments{
   background-color: #f6f6f6;
   padding: 20px;
   margin: 28px 0 40px 0;
@@ -291,6 +295,14 @@ input{
 }
 
 /* ユーザーページ */
+
+.icon_image {
+  width: 200px;
+  height: 200px;
+  border-radius: 100px;
+  object-fit: cover;
+}
+
 .user__wrapper{
   min-height: calc(100vh - 161px);
 }
@@ -347,7 +359,7 @@ input{
     width: 48%;
     margin-bottom: 40px;
   }
-  .prototype_image{
+  .play_image{
     width: 60%;
   }
 }
@@ -370,7 +382,7 @@ input{
   .card__summary {
     font-size: 14px;
   }
-  .prototype_image{
+  .play_image{
     width: 100%;
   }
   .table{

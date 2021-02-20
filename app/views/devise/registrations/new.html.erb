@@ -10,6 +10,11 @@
         <%# //上記エラーメッセージ の表示 %%>
 
         <div class="field">
+          <%= f.label :image, "アイコン画像" %><br/>
+          <%= f.file_field :image %>
+        </div>
+
+        <div class="field">
           <%= f.label :email, "メールアドレス" %><br />
           <%= f.email_field :email, autofocus: true, placeholder:"PC・携帯どちらでも可", autocomplete: "email" %>
         </div>
@@ -27,6 +32,11 @@
         <div class="field">
           <%= f.label :nickname, "ニックネーム" %><br />
           <%= f.text_field :nickname %>
+        </div>
+
+        <div class="field">
+          <%= f.label :profile, "プロフィール" %><br />
+          <%= f.text_area :profile %>
         </div>
 
         <div class="field">

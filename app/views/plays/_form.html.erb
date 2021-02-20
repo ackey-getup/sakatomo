@@ -7,6 +7,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :area_id, "地域" %><br />
+    <%= f.collection_select :area_id, Area.all, :id, :name, {} %>
+  </div>
+
+  <div class="field">
     <%= f.label :place, "開催場所" %><br />
     <%= f.text_field :place, id: "address", placeholder: "例）埼玉スタジアム2002" %>
       <input type="button" value="地図上検索" onclick="codeAddress()">
@@ -48,7 +53,7 @@
         });
       }
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJFru03FJZIcE67jhsD1qGaXYjCB9mpfQ&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLEMAP_API_KEY']%>&callback=initMap" async defer></script>
   </div>
 
   <div class="field">
