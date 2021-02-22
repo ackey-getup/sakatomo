@@ -1,6 +1,7 @@
 <div class="main">
   <div class="inner">
     <div class="user__wrapper">
+      <img src=<%= @user.image %> class = "icon_image" alt="※プロフィール画像を設定しませんか？">
       <h2 class="page-heading">
         <%= @user.nickname%>
       </h2>
@@ -11,7 +12,6 @@
         </div>
       <% end %>
       <table class="table">
-      <img src=<%= @user.image %> class = "icon_image" alt="※プロフィール画像を設定しませんか？">
         <tbody>
           <tr>
             <th class="table__col1">プロフィール</th>

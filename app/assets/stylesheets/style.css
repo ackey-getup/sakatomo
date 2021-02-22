@@ -133,6 +133,11 @@ input{
 
 /* メイン */
 
+.index-image{
+  height: 150px;
+  width: 200px;
+}
+
 .play-lists{
   text-align: center;
 }

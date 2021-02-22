@@ -10,7 +10,9 @@
           <%= plays.detail %>
         </p>
         <%= l plays.created_at, format: :short %>
-        <%#= image_tag plays.image, class:"index-image" %>
+        <% if plays.image.present?%>
+          <%= image_tag plays.image, class:"index-image" %>
+        <% end %>
       </div>
       <%#登録されたマップの表示%>
       <div class="card_map">
