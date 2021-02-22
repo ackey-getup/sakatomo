@@ -135,6 +135,7 @@ input{
 
 .play-lists{
   text-align: center;
+  margin: 30px auto;
 }
 
 .show__area{
@@ -362,8 +363,10 @@ form{
 
 .table{
   border-collapse: collapse;
-  margin-bottom: 32px;
+  margin: 30px auto;
   width: 50%;
+  display: flex;
+  justify-content: center;
 }
 
 .table__col1{
