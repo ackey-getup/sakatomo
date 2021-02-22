@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   root to: 'plays#index'
-  resources :plays
-  resources :playzones, only: [:index, :show]
+  resources :plays do
+    resources :comments, only: [:create]
+  end
+  resources :playzones, only: [:index]
   resources :users, only: :show
 end

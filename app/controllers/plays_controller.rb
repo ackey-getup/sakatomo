@@ -1,5 +1,5 @@
 class PlaysController < ApplicationController
-  before_action :set_play, only: [:show, :edit]
+  before_action :set_play, only: [:show, :edit, :update]
 
   def index
     @plays = Play.all
@@ -19,6 +19,8 @@ class PlaysController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @play.comments.includes(:user)
   end
 
   def edit
@@ -26,7 +28,7 @@ class PlaysController < ApplicationController
 
   def update
     if @play.update(play_params)
-      redirect_to play_path(plays_path)
+      redirect_to playzones_path
     else
       render :edit
     end

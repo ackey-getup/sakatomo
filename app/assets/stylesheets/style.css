@@ -133,6 +133,10 @@ input{
 
 /* メイン */
 
+.play-lists{
+  text-align: center;
+}
+
 .show__area{
   text-align: center;
 }
@@ -221,6 +225,16 @@ input{
 }
 
 /* 詳細ページ */
+
+form{
+  margin-top: 30px;
+}
+
+.comment-submit{
+  background-color: lightgreen;
+  width: 20%;
+}
+
 .play__wrapper{
   min-height: calc(100vh - 161px);
 }
@@ -279,6 +293,12 @@ input{
   margin: 28px 0 40px 0;
 }
 
+.comments{
+  text-align: center;
+  font-size: 18px;
+  border-bottom: 1px solid red;
+}
+
 .comments_lists{
   padding-left: 20px;
 }
@@ -289,9 +309,13 @@ input{
 }
 
 .comment_user{
-  font-size: 16px;
+  font-size: 20px;
   color: #999;
   text-decoration: underline;
+}
+
+.comment-created-at{
+  font-size: 14px;
 }
 
 /* ユーザーページ */
@@ -305,12 +329,15 @@ input{
 
 .user__wrapper{
   min-height: calc(100vh - 161px);
+  text-align: center;
 }
+
 .table{
   border-collapse: collapse;
   margin-bottom: 32px;
   width: 50%;
 }
+
 .table__col1{
   text-align: left;
   font-weight: bold;

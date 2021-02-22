@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :image, ImageUploader
 
-  has_many :plays
+  has_many :plays, dependent: :destroy
 
   validates :nickname, presence: true
   validates :birthday, presence: true
@@ -21,4 +21,17 @@ class User < ApplicationRecord
   belongs_to :play_style
   belongs_to :play_experience
   belongs_to :main_play_area
+
+  def update_without_current_password(params, *options)
+    params.delete(:current_password)
+
+    if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
+      params.delete(:password_confirmation)
+    end
+
+    result = update_attributes(params, *options)
+    clean_up_passwords
+    result
+  end
 end
