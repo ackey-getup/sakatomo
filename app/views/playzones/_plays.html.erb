@@ -10,14 +10,11 @@
           <%= plays.detail %>
         </p>
         <%= l plays.created_at, format: :short %>
+        <%#= image_tag plays.image, class:"index-image" %>
       </div>
       <%#登録されたマップの表示%>
       <div class="card_map">
         <div id="map"></div>
-        <style type="text/css">
-          #map { height: 300px;
-                 width: 500px; }
-        </style>
         <script type="text/javascript">
           function initMap() {
         //#latitude,longitudeから位置を特定

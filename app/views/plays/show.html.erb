@@ -13,10 +13,10 @@
           <%= link_to "削除する", play_path(@play.id), method: :delete, class: :play__btn %>
         </div>
       <% end %>
-      <p class="show__area">
-        <%= @play.area.name %>
-      </p>
       <%# // プレーの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+      <p class="show__area">
+        <%= @play.area.name %><br/>
+      </p>
       <div class="play__map">
         <div id="map"></div>
         <style type="text/css">
@@ -67,6 +67,7 @@
             <%= @play.detail %>
           </p>
         </div>
+        <%= image_tag @play.image, class:"show-image" %>
       </div>
 
       <div class="play__comments">
