@@ -3,15 +3,19 @@
       <div class="card_left">
         <%= link_to "#{plays.title}@#{plays.place}", play_path(plays.id), class: :card__title%>
         <%= link_to plays.user.nickname, root_path, class: :card__user %>
-        <%= l plays.published_at, format: :short %>
-        <%= plays.ground_style.name %>
-        <%= plays.area.name %>
+        <%= "エリア：#{plays.area.name}" %><br/>
+        <%="開催日時："%><%= l plays.published_at, format: :short %><%="~"%><br/>
+        <%= "グラウンド：#{plays.ground_style.name}" %><br/><br/>
         <p class="card__summary">
-          <%= plays.detail %>
+          <%= "コメント：#{plays.detail}" %>
         </p>
-        <%= l plays.created_at, format: :short %>
+        <p class="card__time">  
+          <%="from "%><%= l plays.created_at, format: :short%>
+        </p>
+      </div>
+      <div class="card__image">
         <% if plays.image.present?%>
-          <%= image_tag plays.image, class:"index-image" %>
+          <%= image_tag plays.image %>
         <% end %>
       </div>
       <%#登録されたマップの表示%>

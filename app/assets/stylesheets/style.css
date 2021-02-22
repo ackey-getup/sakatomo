@@ -133,11 +133,6 @@ input{
 
 /* メイン */
 
-.index-image{
-  height: 150px;
-  width: 200px;
-}
-
 .play-lists{
   text-align: center;
 }
@@ -155,7 +150,23 @@ input{
 }
 
 .card_left{
+  display: flex;
+  flex-direction: column;
+}
 
+.card__time{
+  text-align: end;
+  margin-top: auto;
+}
+
+.card__image{
+  display: flex;
+  align-items: center;
+}
+
+.index-image{
+  height: 200px;
+  width: 300px;
 }
 
 #map{
@@ -171,13 +182,15 @@ input{
 
 .open-soccer{
   border: 1px red solid;
-  margin: 5px;
+  margin: 5px auto;
+  text-align: center;
+  width: 25vw;
 }
 
 .hold-soccer{
   display: flex;
+  justify-content: center;
   flex-direction: column;
-  text-align: center;
   margin-top: 30px;
   padding: 3px;
   font-size: 20px;
@@ -207,7 +220,7 @@ input{
   min-height: calc(100vh - 161px);
 }
 .card {
-  width: 80%;
+  width: 80vw;
   margin: 5px auto;
 }
 .card__img {
@@ -380,12 +393,12 @@ form{
 
 .footer {
   background-color: #999;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 .copyright {
   text-align: center;
   color: #fff;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 /* タブレット対応 */
