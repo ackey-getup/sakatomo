@@ -191,7 +191,7 @@ input{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin-top: 30px;
+  margin: 30px auto;
   padding: 3px;
   font-size: 20px;
 }

@@ -14,7 +14,7 @@ class User < ApplicationRecord
     validates :main_play_area_id
   end
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
-  validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数字の両方を含めて6文字以上で設定してください' 
+  validates_format_of :password, with: PASSWORD_REGEX, message: 'は半角英数字の両方を含めて6文字以上で設定してください', on: :create
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :position
@@ -26,7 +26,6 @@ class User < ApplicationRecord
     params.delete(:current_password)
 
     if params[:password].blank? && params[:password_confirmation].blank?
-      params.delete(:password)
       params.delete(:password_confirmation)
     end
 
