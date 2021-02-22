@@ -12,7 +12,7 @@ class PlaysController < ApplicationController
   def create
     @play = Play.new(play_params)
     if @play.save
-      redirect_to root_path
+      redirect_to playzones_path
     else
       render :new
     end
