@@ -62,3 +62,4 @@ gem 'rails-i18n'
 gem 'geocoder'
 gem 'carrierwave'
 gem 'aws-sdk-s3', require: false
+gem 'fog'
