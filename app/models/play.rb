@@ -1,6 +1,6 @@
 class Play < ApplicationRecord
   geocoded_by :place
-  after_validation :geocode, if: :place_changed?
+  after_validation :geocode
   belongs_to :user
   has_one_attached :image
   has_many :comments, dependent: :destroy

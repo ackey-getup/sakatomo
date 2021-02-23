@@ -60,6 +60,5 @@ gem 'devise'
 gem 'active_hash'
 gem 'rails-i18n'
 gem 'geocoder'
-gem 'gon'
 gem 'carrierwave'
 gem 'aws-sdk-s3', require: false

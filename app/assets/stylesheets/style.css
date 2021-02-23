@@ -142,27 +142,27 @@ input{
   text-align: center;
 }
 
+.card__lists{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  min-height: calc(100vh - 161px);
+}
+
 .card__body{
   border: 1px solid black;
   margin: 5px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.card_left{
-  display: flex;
-  flex-direction: column;
+  width: 80%;
 }
 
 .card__time{
-  text-align: end;
   margin-top: auto;
 }
 
 .card__image{
-  display: flex;
-  align-items: center;
+  height: 30%;
+  width: 80%;
 }
 
 .index-image{
@@ -221,7 +221,7 @@ input{
   min-height: calc(100vh - 161px);
 }
 .card {
-  width: 80vw;
+  width: 30vw;
   margin: 5px auto;
 }
 .card__img {
@@ -361,6 +361,9 @@ form{
   text-align: center;
 }
 
+tbody{
+  width: 100%;
+}
 .table{
   border-collapse: collapse;
   margin: 30px auto;

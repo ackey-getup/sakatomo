@@ -6,7 +6,6 @@ class User < ApplicationRecord
   has_many :plays, dependent: :destroy
 
   validates :nickname, presence: true
-  validates :birthday, presence: true
   with_options numericality: { other_than: 1, message: "を選択してください" } do
     validates :position_id
     validates :play_style_id

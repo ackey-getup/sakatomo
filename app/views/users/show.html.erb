@@ -40,9 +40,9 @@
       </h2>
       <div class="hold-soccer">
         <%= link_to "サッカーをする！", new_play_path, class: "open-soccer" %>
-        <%= link_to "サッカーに参加する！", playzones_path, class: "open-soccer" %>
+        <%= link_to "参加する！", playzones_path, class: "open-soccer" %>
       </div>
-      <div class="user__card">
+      <div class="card__lists">
         <%= render partial: "playzones/plays", collection: @plays %>
       </div>
     </div>

@@ -67,7 +67,9 @@
             <%= @play.detail %>
           </p>
         </div>
-        <%= image_tag @play.image, class:"show-image" %>
+        <% if @play.image.present? %>
+          <%= image_tag @play.image, class:"show-image" %>
+        <% end %>
       </div>
 
       <div class="play__comments">
