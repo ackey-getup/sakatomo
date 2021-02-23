@@ -1,5 +1,7 @@
 class PlaysController < ApplicationController
-  before_action :set_play, only: [:show, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+  before_action :set_play, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:edit, :destroy]
 
   def index
     @plays = Play.all
@@ -46,5 +48,11 @@ class PlaysController < ApplicationController
 
   def set_play
     @play = Play.find(params[:id])
+  end
+
+  def move_to_index
+    unless current_user.id == @play.user_id
+      redirect_to action: :index
+    end
   end
 end
