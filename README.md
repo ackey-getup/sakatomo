@@ -7,7 +7,7 @@
 
 ## URL	
 https://sakatomo.herokuapp.com/ <br/>
-・Basic認証<br/>
+- Basic認証<br/>
 【NAME/PASS】sakatomo / akisoccer
 
 ## テスト用アカウント	
