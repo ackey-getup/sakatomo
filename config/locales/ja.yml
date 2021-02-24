@@ -3,19 +3,22 @@ ja:
     models:
       user: ユーザー
       play: プレー
+      comment: コメント
     attributes:
       user:
         email: メールアドレス
         password: パスワード
-        encrypted_password: パスワード（確認用）
+        password_confirmation: 確認用パスワード
         nickname: ニックネーム
-        position: ポジション
-        play_style: プレースタイル
-        play_experience: プレー歴
-        main_play_area: プレー地域
+        position_id: ポジション
+        play_style_id: プレースタイル
+        play_experience_id: プレー年数
+        main_play_area_id: プレー地域
       play:
         title: タイトル
         ground_style_id: グラウンド
-        place: 場所
+        place: 開催場所
         area_id: 地域
-        
+        published_at: 開催日時
+      comment:
+        text: コメント本文

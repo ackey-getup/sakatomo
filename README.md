@@ -129,7 +129,6 @@ https://sakatomo.herokuapp.com/ <br/>
 | --------- | ---------- | ------------------------------- |
 | user      | references | null: false, foreign_keys: true |
 | play      | references | null: false, foreign_keys: true |
-| play_zone | references | null: false, foreign_keys: true |
 
 ### Associations
 

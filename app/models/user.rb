@@ -2,10 +2,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   mount_uploader :image, ImageUploader
-
   has_many :plays, dependent: :destroy
 
-  validates :nickname, presence: true
+  with_options presence: true do
+    validates :nickname, length: { maximum: 20, message: "は20文字以内で入力してください"}
+    validates :password, length: { minimum: 6, message: "は6文字以上で設定してください" }
+  end
+  validates :profile, length: { maximum: 200, message: "は200文字以内で入力してください" }
   with_options numericality: { other_than: 1, message: "を選択してください" } do
     validates :position_id
     validates :play_style_id
@@ -25,6 +28,7 @@ class User < ApplicationRecord
     params.delete(:current_password)
 
     if params[:password].blank? && params[:password_confirmation].blank?
+      params.delete(:password)
       params.delete(:password_confirmation)
     end
 
