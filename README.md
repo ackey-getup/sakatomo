@@ -53,7 +53,7 @@ https://sakatomo.herokuapp.com/ <br/>
 
 ## データベース設計
 【ER図】
-![スクリーンショット 2021-02-24 0 29 08](https://user-images.githubusercontent.com/76201748/108866239-5a962400-7637-11eb-9c52-654413d5f3fa.png)
+![スクリーンショット 2021-02-24 19 04 03](https://user-images.githubusercontent.com/76201748/108986918-07bf7980-76d6-11eb-973a-f1df922f3008.png)
 
 
 # テーブル設計
