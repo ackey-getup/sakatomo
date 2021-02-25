@@ -51,6 +51,16 @@ https://sakatomo.herokuapp.com/ <br/>
 - Google Maps API
 - RSpec
 
+## 実行テスト
+- 単体テスト
+  - userモデル
+  - playモデル
+- 結合テスト
+  - ユーザー情報の新規登録/ログイン
+  - プレーの投稿/編集/削除/詳細
+  - コメント投稿
+
+
 ## データベース設計
 【ER図】
 ![スクリーンショット 2021-02-24 19 04 03](https://user-images.githubusercontent.com/76201748/108986918-07bf7980-76d6-11eb-973a-f1df922f3008.png)
