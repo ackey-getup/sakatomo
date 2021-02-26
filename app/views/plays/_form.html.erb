@@ -1,3 +1,4 @@
+<%# 新規投稿フォーム %>
 <%= form_with model: @play, local: true do |f|%>
   <%= render 'shared/error_messages', model: @play %>
 
@@ -14,11 +15,11 @@
   <div class="field">
     <%= f.label :place, "開催場所" %><br />
     <%= f.text_field :place, id: "address", placeholder: "例）埼玉スタジアム2002" %>
-      <input type="button" value="地図上検索" onclick="codeAddress()">
-      <div id='map'></div>
-
+    
+    <%# Google Mapの表示 %>
+    <input type="button" value="地図上検索" onclick="codeAddress()">
+    <div id='map'></div>
     <style>#map { height: 400px; width: 600px; }</style>
-
     <script>
       let map
       let geocoder
@@ -49,6 +50,7 @@
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLEMAP_API_KEY']%>&callback=initMap" async defer></script>
+    <%#// Google Mapの表示 %>
   </div>
 
   <div class="field">

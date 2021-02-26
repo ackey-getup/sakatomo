@@ -2,6 +2,7 @@
   <div class="inner">
     <div class="play__wrapper">
       <%= link_to "一覧に戻る", playzones_path, class: :play__user %>
+      <%# 投稿されたプレーの詳細情報 %>
       <p class="play__hedding">
         <%= @play.title %>
       </p>
@@ -13,10 +14,11 @@
           <%= link_to "削除する", play_path(@play.id), method: :delete, class: :play__btn %>
         </div>
       <% end %>
-      <%# // プレーの投稿者とログインしているユーザーが同じであれば上記を表示する %>
+
       <p class="show__area">
         <%= @play.area.name %><br/>
       </p>
+      <%# Google Mapの表示 %>
       <div class="play__map">
         <div id="map"></div>
         <style type="text/css">
@@ -52,7 +54,7 @@
           }
         </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= "#{ENV['GOOGLEMAP_API_KEY']}" %>&callback=initMap"></script>    
-
+        <%#// Google Mapの表示%>
       </div>
 
       <div class="play__body">
@@ -71,7 +73,7 @@
           <%= image_tag @play.image, class:"show-image" %>
         <% end %>
       </div>
-
+      <%# コメント欄の表示（ユーザーネーム・テキスト・投稿日時）%>
       <div class="play__comments">
         <p class="comments">コメント一覧</p>
         <div class="comment-room", id="commentid">
@@ -83,7 +85,7 @@
             </li>
           <% end %>
       </div>
-
+      <%# コメント投稿フォーム %>
       <%= form_with(model: [@play, @comment], local: true) do |f| %>
         <%= render 'shared/error_messages', model: f.object %>
         <form class="comment-form">
