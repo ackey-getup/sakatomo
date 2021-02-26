@@ -48,10 +48,11 @@ https://sakatomo.herokuapp.com/ <br/>
 - MySQL 5.6.50
 - AWS
   - S3
+  - EC2
 - Google Maps API
 - RSpec
 
-## 実行したテスト
+## 実行したテスト(RSpec)
 - 単体テストコード
   - userモデル
   - playモデル
