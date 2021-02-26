@@ -1,4 +1,7 @@
 Rails.application.configure do
+  ActionCable.server.config.disable_request_forgery_protection = true
+  config.action_cable.url = "ws://3.130.10.219/cable" 
+  config.action_cable.allowed_request_origins = ['http://3.130.10.219']
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
