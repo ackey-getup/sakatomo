@@ -5,9 +5,8 @@ class GroundStyle < ActiveHash::Base
     { id: 3, name: '人工芝' },
     { id: 4, name: '荒れた芝' },
     { id: 5, name: '天然芝' }
-]
+  ]
 
   include ActiveHash::Associations
   has_many :plays
-
 end

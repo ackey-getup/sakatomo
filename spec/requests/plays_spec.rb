@@ -1,6 +1,5 @@
 require 'rails_helper'
 describe PlaysController, type: :request do
-
   before do
     @play = FactoryBot.create(:play)
   end

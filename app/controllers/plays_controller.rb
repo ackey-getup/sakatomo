@@ -42,8 +42,10 @@ class PlaysController < ApplicationController
   end
 
   private
+
   def play_params
-    params.require(:play).permit(:title, :area_id, :place, :ground_style_id, :published_at, :detail, :image).merge(user_id: current_user.id)
+    params.require(:play).permit(:title, :area_id, :place, :ground_style_id, :published_at, :detail,
+                                 :image).merge(user_id: current_user.id)
   end
 
   def set_play
@@ -51,8 +53,6 @@ class PlaysController < ApplicationController
   end
 
   def move_to_index
-    unless current_user.id == @play.user_id
-      redirect_to action: :index
-    end
+    redirect_to action: :index unless current_user.id == @play.user_id
   end
 end

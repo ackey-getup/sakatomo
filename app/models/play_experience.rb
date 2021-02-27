@@ -8,9 +8,8 @@ class PlayExperience < ActiveHash::Base
     { id: 6, name: '15~20年' },
     { id: 7, name: '20年~' }
 
-]
+  ]
 
   include ActiveHash::Associations
   has_many :users
-
 end
