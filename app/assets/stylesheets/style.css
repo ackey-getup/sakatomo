@@ -112,14 +112,14 @@ p{
 
 .play-topix{
   color: white;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 2.4;
   margin: auto;
 }
 
 .join-topix{
   color: white;
-  font-size: 18px;
+  font-size: 24px;
   line-height: 2.4;
   margin: auto;
   text-align: right;
@@ -284,7 +284,7 @@ input{
 }
 
 .index-text{
-  font-size: 20px;
+  font-size: 24px;
   margin-top: 30px;
   text-align: center;
   line-height: 2;
@@ -486,20 +486,23 @@ tbody{
 /* フッター */
 
 .footer {
-  background-color: #999;
-  padding: 5px 0;
+  background-color: lightskyblue;
+  text-align: center;
 }
 .copyright {
-  text-align: center;
-  color: #fff;
-  font-size: 15px;
+  color: black;
+  font-size: 24px;
+  padding-bottom: 2%;
+}
+.footer-logo{
+  width: 30vw;
+  margin: 2%;
 }
 
 /* タブレット対応 */
 @media (max-width: 1024px) {
   .inner {
     width: 90%;
-    margin: 0 auto;
   }
   .page-heading {
     font-size: 24px;

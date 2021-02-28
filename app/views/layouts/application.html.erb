@@ -37,7 +37,8 @@
     </header>
     <%= yield %>
     <footer class="footer">
-      <p class="copyright">Copyright © SAKATOMO! All rights reserved.</p>
+      <%= link_to image_tag("SAKATOMO_logo.png", class: "footer-logo"), root_path %>
+      <p class="copyright">© SAKATOMO! All rights reserved.</p>
     </footer>
   </body>
 </html>
