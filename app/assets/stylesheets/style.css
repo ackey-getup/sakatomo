@@ -36,8 +36,11 @@ a {
 
 /* トップ */
 
+p{
+  font-family: "游ゴシック体","YuGothic";
+}
+
 .background-top{
-  background-size: cover;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -65,6 +68,70 @@ a {
   transform: translate(-50%,-50%);
   margin-top: 250px;
   font-family: 'Caveat', cursive;
+}
+
+.top-introduce{
+  font-family: "Klee","クレー";
+  font-size: 50px;
+}
+
+.top-kicker{
+  height: 80%;
+  width: 20%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0.2;
+}
+
+.play-selection{
+  background-color: black;
+}
+
+.select-play{
+  margin-top: 10%;
+  display: flex;
+  height: 75%;
+}
+
+.play-image{
+  width: 60%;
+  height: 80vh;
+}
+
+.select-join{
+  display: flex;
+  flex-direction: row-reverse;
+  height: 75%;
+}
+
+.join-image{
+  width: 60%;
+  height: 80vh;
+}
+
+.play-topix{
+  color: white;
+  font-size: 18px;
+  line-height: 2.4;
+  margin: auto;
+}
+
+.join-topix{
+  color: white;
+  font-size: 18px;
+  line-height: 2.4;
+  margin: auto;
+  text-align: right;
+}
+
+.open-soccer{
+  color: white;
+  border: 1px red solid;
+  padding: 4px 20px;
+  text-align: center;
+  width: 25vw;
+  height: 5vh;
 }
 
 /* ヘッダー */
@@ -164,6 +231,9 @@ input{
 }
 
 /* メイン */
+.main{
+  margin-top: 10%;
+}
 
 .play-lists{
   text-align: center;
@@ -213,26 +283,11 @@ input{
   color: rgb(182, 48, 0);
 }
 
-.open-soccer{
-  border: 1px red solid;
-  margin: 5px auto;
-  text-align: center;
-  width: 25vw;
-}
-
-.hold-soccer{
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 30px auto;
-  padding: 3px;
-  font-size: 20px;
-}
-
 .index-text{
-  font-size: 24px;
+  font-size: 20px;
   margin-top: 30px;
   text-align: center;
+  line-height: 2;
 }
 
 .greeting{
@@ -250,8 +305,9 @@ input{
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  min-height: calc(100vh - 161px);
+  position: relative;
 }
+
 .card {
   width: 30vw;
   margin: 5px auto;

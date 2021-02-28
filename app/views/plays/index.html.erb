@@ -1,18 +1,41 @@
+<%= image_tag "football_og.png", class: "background-top", alt: "background-SAKTOMO" %>
+<%= image_tag "さかともロゴ.png", size: "400x400", class: "top-logo", alt: "SAKATOMO!" %>
+<h1 class="top-welcome">Welcome!!</h1>
 <main class="main">
-  <%= image_tag "football_og.png", class: "background-top" %>
-  <%= image_tag "さかともロゴ.png", size: "400x400", class: "top-logo" %>
-  <h1 class="top-welcome">Welcome!!</h1>
   <div class="inner">
     <div class="card__wrapper">
-      <h1>「さかとも！」へようこそ！</h1>
-      <p class="index-text">必要なものはボール１つ。<br>
-         地元でも知らない土地でもこのアプリを使ってサッカー仲間を探そう。<br>
-         一緒にプレーする仲間を増やして大好きなサッカーをより楽しもう。
+      <h1 class="top-introduce">誰か一緒にサッカーしましょう！</h1>
+      <p class="index-text">そうだ、サッカーしよう！<br/>
+        どこかに一緒にプレーしてくる人いないかなぁ?<br/>
+        そんなアナタを「さかとも!」はお手伝いします。
       </p>
-      <div class="hold-soccer">
+      <%= image_tag "soccer_kick.png", class: "top-kicker", alt: "サッカーする人" %>
+    </div>
+  </div>
+  <div class="play-selection">
+    <div class="select-play">
+      <%= image_tag "top_image2.jpg", class: "play-image", alt: "サッカーをする" %>
+      <p class="play-topix">
+        1vs1の練習がしたい！<br/>
+        シュート練習の相手がほしい！<br/>
+        サッカーはチームスポーツ<br/>
+        1人じゃできない練習やりたいなぁ<br/>
+        いつもの練習にスパイスを<br/>  
+        ━━誰か来てくれるかも？<br/>
         <%= link_to "サッカーをする！", new_play_path, class: "open-soccer" %>
+      </p>
+    </div>
+    <div class="select-join">
+      <%= image_tag "stadium.jpg", class: "join-image", alt: "サッカーに参加する" %>
+      <p class="join-topix">
+        いつものメンバーで<br/>
+        たまには知らない人と<br/>
+        新しいコミュニティ作りや<br/>
+        町クラブの練習参加に<br/>
+        新しい世界に飛び込んでみよう<br/>  
+        いい相手が見つかるかも<br/>
         <%= link_to "参加する！", playzones_path, class: "open-soccer" %>
-      </div>
+      </p>
     </div>
   </div>
 </main>
