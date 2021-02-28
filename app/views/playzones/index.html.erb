@@ -1,4 +1,9 @@
-<h1 class="play-lists">開催プレー一覧</h1>
-  <div class="card__lists">
-    <%= render partial: "plays", collection: @plays %>
+<div class="plays-body">
+  <%= render 'shared/sidebar' %>
+  <div class="main-list">
+    <h1 class="play-lists">開催プレー一覧</h1>
+    <div class="card__lists">
+      <%= render partial: "shared/plays", collection: @plays %>
+    </div>
   </div>
+</div>

@@ -1,0 +1,36 @@
+<%# 一覧に表示される投稿された内容 %>
+<div class="card">
+  <div class="card__body">
+    <div class="card-user">
+      <% if plays.user.image.present? %>
+        <%= link_to image_tag("#{plays.user.image}", class: "card-icon"), user_path(plays.user) %>
+      <% else %>
+        <%= link_to image_tag("icon_null.png", class: "card-icon"), user_path(plays.user) %>
+      <% end %>
+      <%= link_to plays.user.nickname, user_path(plays.user), class: :card__user %> 
+    </div>
+    <div class="card-main">
+      <%= link_to "#{plays.title}@#{plays.place}", play_path(plays.id), class: :card__title%>
+      <div class="card-center">
+        <div class=card-center-right>
+          <%= "エリア：#{plays.area.name}" %><br/>
+          <%="開催日時："%><%= l plays.published_at, format: :short %><%="~"%><br/>
+          <%= "グラウンド：#{plays.ground_style.name}" %><br/><br/>
+          <p class="card__summary">
+            <%= "コメント：#{plays.detail}" %>
+          </p>
+        </div>
+        <div class="card__image">
+          <% if plays.image.present?%>
+            <%= image_tag plays.image %>
+          <% else %>
+            <%= image_tag "null_image.png" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <p class="card-time">
+      <%="from "%><%= l plays.created_at, format: :short %>
+    </p>
+  </div>
+</div>

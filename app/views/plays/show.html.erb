@@ -1,98 +1,100 @@
 <main class="main">
   <div class="inner">
-    <div class="play__wrapper">
-      <%= link_to "一覧に戻る", playzones_path, class: :play__user %>
-      <%# 投稿されたプレーの詳細情報 %>
-      <p class="play__hedding">
-        <%= @play.title %>
-      </p>
-      <%= link_to @play.user.nickname, user_path(@play.user), class: :play__user %>
-      <%# プレーの投稿者とログインしているユーザーが同じであれば以下を表示する %>
-      <% if current_user.id == @play.user_id %>
-        <div class="play__manage">
-          <%= link_to "編集する", edit_play_path(@play.id), class: :play__btn %>
-          <%= link_to "削除する", play_path(@play.id), method: :delete, class: :play__btn %>
+    <div class="contents">
+      <%= render 'shared/sidebar' %>
+      <div class="play__wrapper">
+        <%# 投稿されたプレーの詳細情報 %>
+        <p class="play__hedding">
+          <%= @play.title %>
+        </p>
+        <%= link_to @play.user.nickname, user_path(@play.user), class: :play__user %>
+        <%# プレーの投稿者とログインしているユーザーが同じであれば以下を表示する %>
+        <% if current_user.id == @play.user_id %>
+          <div class="play__manage">
+            <%= link_to "編集する", edit_play_path(@play.id), class: :play__btn %>
+            <%= link_to "削除する", play_path(@play.id), method: :delete, class: :play__btn %>
+          </div>
+        <% end %>
+
+        <p class="show__area">
+          <%= @play.area.name %><br/>
+        </p>
+        <%# Google Mapの表示 %>
+        <div class="play__map">
+          <div id="map"></div>
+          <style type="text/css">
+            #map { height: 400px;
+                  width: 500px; }
+          </style>
+          <script type="text/javascript">
+            function initMap() {
+          //#latitude,longitudeから位置を特定
+              var test = { lat: <%= @play.latitude %>, lng: <%= @play.longitude %> };
+              var map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 15, 
+                        center: test
+                        });
+              var transitLayer = new google.maps.TransitLayer();
+              transitLayer.setMap(map);
+
+              var contentString = '<%= @play.place %>';
+              var infowindow = new google.maps.InfoWindow({
+                content: contentString
+              });
+
+          //#Map上の指定した位置にピンを挿して表示する
+              var marker = new google.maps.Marker({
+                            position:test,
+                            map: map,
+                            title: contentString
+                          });
+
+              marker.addListener('click', function() {
+                infowindow.open(map, marker);
+              });
+            }
+          </script>
+          <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= "#{ENV['GOOGLEMAP_API_KEY']}" %>&callback=initMap"></script>    
+          <%#// Google Mapの表示%>
         </div>
-      <% end %>
 
-      <p class="show__area">
-        <%= @play.area.name %><br/>
-      </p>
-      <%# Google Mapの表示 %>
-      <div class="play__map">
-        <div id="map"></div>
-        <style type="text/css">
-          #map { height: 400px;
-                 width: 500px; }
-        </style>
-        <script type="text/javascript">
-          function initMap() {
-        //#latitude,longitudeから位置を特定
-            var test = { lat: <%= @play.latitude %>, lng: <%= @play.longitude %> };
-            var map = new google.maps.Map(document.getElementById('map'), {
-                      zoom: 15, 
-                      center: test
-                      });
-            var transitLayer = new google.maps.TransitLayer();
-            transitLayer.setMap(map);
-
-            var contentString = '<%= @play.place %>';
-            var infowindow = new google.maps.InfoWindow({
-              content: contentString
-            });
-
-         //#Map上の指定した位置にピンを挿して表示する
-            var marker = new google.maps.Marker({
-                          position:test,
-                          map: map,
-                          title: contentString
-                         });
-
-            marker.addListener('click', function() {
-              infowindow.open(map, marker);
-            });
-          }
-        </script>
-        <script async defer src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= "#{ENV['GOOGLEMAP_API_KEY']}" %>&callback=initMap"></script>    
-        <%#// Google Mapの表示%>
-      </div>
-
-      <div class="play__body">
-        <div class="play__detail">
-          <p class="detail__title"><%= "#{@play.place}(#{@play.ground_style.name})" %></p>
-          <p class="detail__message">
-            <%= l @play.published_at, format: :short %>
-          </p>
+        <div class="play__body">
+          <div class="play__detail">
+            <p class="detail__title"><%= "#{@play.place}(#{@play.ground_style.name})" %></p>
+            <p class="detail__message">
+              <%= l @play.published_at, format: :short %>
+            </p>
+          </div>
+          <div class="play__detail">
+            <p class="detail__message">
+              <%= @play.detail %>
+            </p>
+          </div>
+          <% if @play.image.present? %>
+            <%= image_tag @play.image, class:"show-image" %>
+          <% end %>
         </div>
-        <div class="play__detail">
-          <p class="detail__message">
-            <%= @play.detail %>
-          </p>
+        <%# コメント欄の表示（ユーザーネーム・テキスト・投稿日時）%>
+        <div class="play__comments">
+          <p class="comments">コメント一覧</p>
+          <div class="comment-room", id="commentid">
+            <% @comments.each do |comment| %>
+              <li class="comments-list">
+                <%= link_to comment.user.nickname, user_path(comment.user_id), class: :comment_user %>
+                <%= comment.text %>
+                <div class="comment-created-at"><%= l comment.created_at, format: :short %></div>
+              </li>
+            <% end %>
         </div>
-        <% if @play.image.present? %>
-          <%= image_tag @play.image, class:"show-image" %>
+        <%# コメント投稿フォーム %>
+        <%= form_with(model: [@play, @comment], local: true) do |f| %>
+          <%= render 'shared/error_messages', model: f.object %>
+          <form class="comment-form">
+            <%= f.text_field :text, class: "comment-text", placeholder: "コメントを送ってみましょう" %>
+            <%= f.submit "コメントする", class: "comment-submit" %>
+          </form>
         <% end %>
       </div>
-      <%# コメント欄の表示（ユーザーネーム・テキスト・投稿日時）%>
-      <div class="play__comments">
-        <p class="comments">コメント一覧</p>
-        <div class="comment-room", id="commentid">
-          <% @comments.each do |comment| %>
-            <li class="comments-list">
-              <%= link_to comment.user.nickname, user_path(comment.user_id), class: :comment_user %>
-              <%= comment.text %>
-              <div class="comment-created-at"><%= l comment.created_at, format: :short %></div>
-            </li>
-          <% end %>
-      </div>
-      <%# コメント投稿フォーム %>
-      <%= form_with(model: [@play, @comment], local: true) do |f| %>
-        <%= render 'shared/error_messages', model: f.object %>
-        <form class="comment-form">
-          <%= f.text_field :text, class: "comment-text", placeholder: "コメントを送ってみましょう" %>
-          <%= f.submit "コメントする", class: "comment-submit" %>
-        </form>
-      <% end %>
     </div>
   </div>
 </main>

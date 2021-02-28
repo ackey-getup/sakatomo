@@ -1,9 +1,11 @@
 <div class="main">
   <div class="inner">
-    <div class="form__wrapper">
-      <h2 class="page-heading">新規プレー投稿</h2>
-        <%# 部分テンプレートでフォームを表示する %>
-        <%= render 'form' %>
+    <div class="contents">
+      <%= render 'shared/sidebar' %>
+      <div class="form__wrapper">
+        <h2 class="page-heading">新規プレー投稿</h2>
+          <%= render 'shared/form' %>
+      </div>
     </div>
   </div>
 </div>
