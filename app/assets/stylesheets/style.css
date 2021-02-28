@@ -34,11 +34,43 @@ a {
   color: #3b4043;
 }
 
+/* トップ */
+
+.background-top{
+  background-size: cover;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.top-logo{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin:0;
+  padding:0;
+}
+
+.top-welcome{
+  position: absolute;
+  text-shadow:1px 0 0 #fff,0 1px 0 #fff,-1px 0 0 #fff,0 -1px 0 #fff,3px 3px 0 #fff;
+  font-size: 48px;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%,-50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  margin-top: 250px;
+  font-family: 'Caveat', cursive;
+}
+
 /* ヘッダー */
 
 .header {
   background-color: lightgreen;
-  margin-bottom: 48px;
   padding: 20px 0;
 
 }
