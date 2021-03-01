@@ -145,13 +145,13 @@ p{
 
 .header {
   background-color: lightgreen;
-  padding: 20px 0;
   height: 10vh;
   width: 100vw;
 }
 .inner {
   width: 1024px;
-  margin: 0 auto;
+  margin: auto;
+  padding-top: 1%;
 }
 .nav {
   width: 100%;
