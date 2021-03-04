@@ -41,6 +41,9 @@ class PlaysController < ApplicationController
     redirect_to root_path
   end
 
+  def help
+  end
+
   private
 
   def play_params

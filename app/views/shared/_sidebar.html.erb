@@ -1,9 +1,9 @@
 <aside class="sidebar">
   <div class="sidebar-texts">
     <%= link_to "トップページ", root_path, class: "side-text" %>
-    <%= link_to "プレー一覧", playzones_path, class: "side-text" %>
+    <%= link_to "タイムライン", playzones_path, class: "side-text" %>
     <%= link_to "プレーを投稿する", new_play_path, class: "side-text" %>
-    <%= link_to "Coming soon...", "#", class: "side-text" %>
+    <%= link_to "使い方", help_path, class: "side-text" %>
     <%= link_to current_user.nickname, user_path(current_user.id), class: "side-text" %>       
   </div>
-</aside>
+</aside> 
