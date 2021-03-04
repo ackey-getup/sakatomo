@@ -5,5 +5,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
   resources :playzones, only: [:index]
-  resources :users, only: :show
+  resources :users, only: [:show]
+  get 'help', to: 'plays#help'
 end
