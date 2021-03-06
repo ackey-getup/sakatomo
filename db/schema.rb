@@ -51,8 +51,8 @@ ActiveRecord::Schema.define(version: 2021_02_20_134325) do
     t.integer "area_id", null: false
     t.integer "ground_style_id", null: false
     t.string "detail"
-    t.float "latitude"
-    t.float "longitude"
+    t.float "latitude", null: false
+    t.float "longitude", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_plays_on_user_id"
