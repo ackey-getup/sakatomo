@@ -5,10 +5,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
     ports:
-      - '3306:3306'
+      - '4306:3306'
     command: --default-authentication-plugin=mysql_native_password
     volumes:
       - mysql-data:/var/lib/mysql
+    env_file: db.env
   web:
     build: .
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
@@ -20,6 +21,7 @@ services:
       - db
     stdin_open: true
     tty: true
+    env_file: db.env
 volumes:
   mysql-data:
     driver: local
