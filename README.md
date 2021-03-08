@@ -47,6 +47,7 @@ http://3.130.10.219/<br/>
   - S3
   - EC2
 - docker
+- CircleCI/CD
 - Google Maps API
 - RSpec
 
