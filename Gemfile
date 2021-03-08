@@ -72,6 +72,7 @@ gem 'geocoder'
 gem 'carrierwave'
 gem 'aws-sdk-s3', require: false
 gem 'fog'
+gem 'sinatra'
 
 group :production do
   gem 'unicorn', '5.4.1'
