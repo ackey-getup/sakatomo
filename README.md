@@ -47,13 +47,14 @@ http://3.130.10.219/<br/>
   - S3
   - EC2
 - docker
-- CircleCI/CD
+- CircleCI
 - Google Maps API
 - RSpec
 
 ## 実行したテスト(RSpec)
 - 単体テストコード
-  - 各モデル
+  - userモデル
+  - playモデル
 - 結合テストコード
   - ユーザー情報の新規登録/ログイン
   - プレーの投稿/編集/削除/詳細
