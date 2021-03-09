@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   with_options presence: true do
     validates :nickname, length: { maximum: 20, message: 'は20文字以内で入力してください' }
-    validates :password, length: { minimum: 6, message: 'は6文字以上で設定してください' }
+    validates :password, length: { minimum: 6, message: 'は6文字以上で設定してください' }, on: :create
   end
   validates :profile, length: { maximum: 200, message: 'は200文字以内で入力してください' }
   with_options numericality: { other_than: 1, message: 'を選択してください' } do

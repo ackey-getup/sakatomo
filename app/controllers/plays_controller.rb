@@ -37,8 +37,9 @@ class PlaysController < ApplicationController
   end
 
   def destroy
-    @play.destroy
-    redirect_to root_path
+    if @play.destroy
+      redirect_to playzones_path
+    end
   end
 
   def help
