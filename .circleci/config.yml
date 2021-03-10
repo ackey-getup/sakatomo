@@ -16,7 +16,6 @@ jobs:
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
       # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
 
     working_directory: ~/repo
 
@@ -51,7 +50,7 @@ jobs:
 # rspecを走らせる記述です。
       # run tests!
       - run:
-          name: run tests
+          name: RSpec
           command: bundle exec rspec
 
       # collect reports
