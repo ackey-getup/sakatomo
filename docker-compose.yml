@@ -23,10 +23,7 @@ services:
     tty: true
     env_file: db.env
     environment:
-      GOOGLEMAP_API_KEY: ${GOOGLEMAP_API_KEY}
-      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
-      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
-    - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
+      - "SELENIUM_DRIVER_URL=http://selenium_chrome:4444/wd/hub"
   selenium_chrome:
     image: selenium/standalone-chrome-debug
     logging:
