@@ -4,7 +4,7 @@ server '3.130.10.219', user: 'ec2-user', roles: %w{app db web}
 set :ssh_options, {
   port: 22,
   user: 'ec2-user',
-  keys: [ENV.fetch('PRODUCTION_SSH_KEY').to_s],
+  keys: ['~/.ssh/sakatomo_rsa'],
   forward_agent: true,
-#  auth_methods: %w[publickey]
+  auth_methods: %w[publickey]
 }
