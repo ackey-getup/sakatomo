@@ -13,7 +13,8 @@ http://3.130.10.219/<br/>
 
 ## テスト用アカウント	
 - テストユーザー<br/>
-【Email/PASS】test@test.com / 123abc
+【Email】test@test.com<br/>
+【PASS】123abc
 
 ## 利用方法
 - ユーザー登録をする
