@@ -53,4 +53,5 @@ production:
   database: sakatomo_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
-  socket: /var/lib/mysql/mysql.sock
+  host: <%= ENV.fetch('DB_HOST', '127.0.0.1') %>
+  port: 4306
