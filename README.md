@@ -10,8 +10,6 @@
 
 ## URL	
 http://3.130.10.219/<br/>
-
-## テスト用アカウント	
 - テストユーザー<br/>
 【Email】test@test.com<br/>
 【PASS】123abc
