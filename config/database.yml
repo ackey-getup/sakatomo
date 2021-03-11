@@ -52,6 +52,6 @@ production:
   <<: *default
   database: sakatomo_production
   username: root
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  host: <%= ENV.fetch('DB_HOST', '127.0.0.1') %>
+  password: password
+  host: '127.0.0.1'
   port: 4306
