@@ -12,13 +12,14 @@
 http://3.130.10.219/<br/>
 - テストユーザー<br/>
 【Email】test@test.com<br/>
-【PASS】123abc
-<img width="1440" alt="sakatomo_top" src="https://user-images.githubusercontent.com/76201748/110926079-4a848100-8367-11eb-86ef-7e01574994c5.png">
+【PASS】123abc<br/>
+【トップページ】
+<img width="1440" alt="image" src="https://user-images.githubusercontent.com/76201748/110927099-8bc96080-8368-11eb-98f1-72b6c9fbb92b.png">
 
 ## 利用方法
 - ユーザー登録をする
-- プレーを投稿する
-- →タイトル、地域、開催場所を検索し地図を表示、グラウンドを選択、開催日時を決定する
+- プレーを投稿する<br/>
+  →タイトル、地域、開催場所を検索し地図を表示、グラウンドを選択、開催日時を決定する
 - トップページ又はマイページの「参加する！」から一覧に表示されている投稿を探す
 - 投稿詳細ページからコメントを送る
 - 使い方を確認する
@@ -63,8 +64,8 @@ http://3.130.10.219/<br/>
 <img width="834" alt="さかとも構成図" src="https://user-images.githubusercontent.com/76201748/110924803-d3022200-8365-11eb-92a1-88a1e3cfd3c7.png">
 
 ## CircleCI
-- Githubへのpush時に、RspecとRubocopが自動で実行されます。
-- masterブランチへのpushでは、RspecとRubocopが成功した場合、EC2への自動デプロイが実行されます
+- Githubへのpush時に、RSpecとRuboCopが自動で実行
+- masterブランチへのpushでは、RSpecとRuboCopが成功した場合、CapistranoでEC2へ自動でデプロイ
 
 ## データベース設計
 【ER図】
