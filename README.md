@@ -12,8 +12,7 @@
 http://3.130.10.219/<br/>
 - テストユーザー<br/>
 【Email】test@test.com<br/>
-【PASS】123abc<br/>
-【トップページ】
+【PASS】123abc
 <img width="1440" alt="image" src="https://user-images.githubusercontent.com/76201748/110927099-8bc96080-8368-11eb-98f1-72b6c9fbb92b.png">
 
 ## 利用方法
@@ -43,15 +42,18 @@ http://3.130.10.219/<br/>
 - Ruby：2.6.5
 - Ruby on Rails：6.0.3.4
 - MySQL：5.6.50
+- Nginx
+- Puma
 - AWS
   - S3
   - EC2
-- Docker
+- Docker / Docker-compose
 - CircleCI
+- Capistrano
 - Google Maps API
 - RSpec
 
-## 実行したテスト(RSpec)
+## RSpec
 - 単体テストコード
   - ユーザー登録
   - プレー投稿
