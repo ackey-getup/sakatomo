@@ -71,8 +71,7 @@ http://3.130.10.219/<br/>
 
 ## データベース設計
 【ER図】
-![スクリーンショット 2021-02-24 19 04 03](https://user-images.githubusercontent.com/76201748/108986918-07bf7980-76d6-11eb-973a-f1df922f3008.png)
-
+![image](https://user-images.githubusercontent.com/76201748/111023035-02726680-841a-11eb-9bf1-4d764fb546a1.png)
 
 # テーブル設計
 
