@@ -1,7 +1,7 @@
 # README -さかとも！-
 ![さかともの輪](https://user-images.githubusercontent.com/76201748/108864948-08083800-7636-11eb-93a6-00c40b73b8c8.jpg)
 ## 概要	
-- サッカー好きのためのサッカー専用SNSです。
+- サッカー好きのためのサッカー交流SNSを目指して制作しました。
 - このアプリを用いて地域のサッカー仲間を探すことができます。
 
 ## 制作した経緯
@@ -66,7 +66,7 @@ http://3.130.10.219/<br/>
 <img width="834" alt="さかとも構成図" src="https://user-images.githubusercontent.com/76201748/110924803-d3022200-8365-11eb-92a1-88a1e3cfd3c7.png">
 
 ## CircleCI
-- Githubへのpush時に、RSpecとRuboCopが自動で実行
+- GitHubへのpush時に、RSpecとRuboCopが自動で実行
 - masterブランチへのpushでは、RSpecとRuboCopが成功した場合、CapistranoでEC2へ自動でデプロイ
 
 ## データベース設計
