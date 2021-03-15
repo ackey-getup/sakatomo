@@ -92,7 +92,7 @@ http://3.130.10.219/<br/>
 ### Associations
 
 - has_many :plays
-- has_many :favorites
+- has_many :likes
 - has_many :comments
 - has_many :follows
 
@@ -114,7 +114,7 @@ http://3.130.10.219/<br/>
 
 - belongs_to :user
 - has_many   :comments
-- has_many   :favorites
+- has_many   :likes
 
 ## commentsテーブル
 
@@ -140,7 +140,7 @@ http://3.130.10.219/<br/>
 
 - belongs_to :user
 
-## favoritesテーブル
+## likesテーブル
 
 |   Column  |    Type    |            Options              |
 | --------- | ---------- | ------------------------------- |
