@@ -3,6 +3,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :image, ImageUploader
   has_many :plays, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :liked_plays, through: :likes, source: :play
 
   with_options presence: true do
     validates :nickname, length: { maximum: 20, message: 'は20文字以内で入力してください' }
@@ -23,6 +25,10 @@ class User < ApplicationRecord
   belongs_to :play_style
   belongs_to :play_experience
   belongs_to :main_play_area
+
+  def already_liked?(play)
+    self.likes.exists?(play_id: play.id)
+  end
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)

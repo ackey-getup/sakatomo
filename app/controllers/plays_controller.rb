@@ -23,6 +23,7 @@ class PlaysController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @play.comments.includes(:user)
+    @like = Like.new
   end
 
   def edit
