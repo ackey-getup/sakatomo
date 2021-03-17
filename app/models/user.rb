@@ -27,7 +27,7 @@ class User < ApplicationRecord
   belongs_to :main_play_area
 
   def already_liked?(play)
-    self.likes.exists?(play_id: play.id)
+    likes.exists?(play_id: play.id)
   end
 
   def update_without_current_password(params, *options)
