@@ -29,13 +29,15 @@
         </div>
       </div>
     </div>
-    <p class="card-time">
+    <div class="card-like">
       <%= plays.likes.count %>
         <% if current_user.already_liked?(plays) %>
-          <%= button_to 'いいねを取り消す', play_like_path(plays), method: :delete %>
+          <%= button_to 'いいねを取り消す', play_like_path(plays), method: :delete, class: "like-button" %>
         <% else %>
-          <%= button_to 'いいね', play_likes_path(plays) %>
+          <%= button_to 'いいね', play_likes_path(plays), class: "like-button" %>
         <% end %>
+    </div>
+    <p class="card-time">
       <%="from "%><%= l plays.created_at, format: :short %>
     </p>
   </div>
