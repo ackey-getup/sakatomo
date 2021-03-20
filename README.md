@@ -20,8 +20,10 @@ http://3.130.10.219/<br/>
 - プレーを投稿する<br/>
   →タイトル、地域、開催場所を検索し地図を表示、グラウンドを選択、開催日時を決定する
 - トップページ又はマイページの「参加する！」から一覧に表示されている投稿を探す
+- 検索から投稿を絞り込む
 - 投稿に対していいねをする
 - 投稿詳細ページからコメントを送る
+- 他のユーザーをフォローする
 - 使い方を確認する
 
 ## 機能一覧
@@ -93,7 +95,7 @@ http://3.130.10.219/<br/>
 ### Associations
 
 - has_many :plays
-- has_many :favorites
+- has_many :likes
 - has_many :comments
 - has_many :follows
 
@@ -115,7 +117,7 @@ http://3.130.10.219/<br/>
 
 - belongs_to :user
 - has_many   :comments
-- has_many   :favorites
+- has_many   :likes
 
 ## commentsテーブル
 
@@ -141,7 +143,7 @@ http://3.130.10.219/<br/>
 
 - belongs_to :user
 
-## favoritesテーブル
+## likesテーブル
 
 |   Column  |    Type    |            Options              |
 | --------- | ---------- | ------------------------------- |
