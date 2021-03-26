@@ -12,9 +12,14 @@ class Play < ApplicationRecord
     validates :place
     validates :published_at
   end
+
   with_options numericality: { other_than: 1, message: 'を選択してください' } do
     validates :area_id
     validates :ground_style_id
+  end
+
+  def liked_by?(user)
+    likes.where(user_id: user.id).exists?
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
