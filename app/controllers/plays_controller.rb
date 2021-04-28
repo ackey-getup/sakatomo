@@ -62,5 +62,4 @@ class PlaysController < ApplicationController
   def move_to_index
     redirect_to action: :index unless current_user.id == @play.user_id
   end
-  
 end

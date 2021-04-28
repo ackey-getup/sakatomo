@@ -1,12 +1,21 @@
 class LikesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_like
+
   def create
-    @like = current_user.likes.create(play_id: params[:play_id])
-    redirect_to list_path
+      user = current_user
+      play = Play.find(params[:play_id])
+      like = Like.create(user_id: user.id, play_id: play.id)
+  end
+  def destroy
+      user = current_user
+      play = play.find(params[:play_id])
+      like = Like.find_by(user_id: user.id, play_id: play.id)
+      like.delete
   end
 
-  def destroy
-    @like = Like.find_by(play_id: params[:play_id], user_id: current_user.id)
-    @like.destroy
-    redirect_to list_path
+  private
+  def set_like
+      @play = play.find(params[:play_id])
   end
 end

@@ -5,7 +5,7 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader
   has_many :plays, dependent: :destroy
   has_many :likes, dependent: :destroy
-  has_many :liked_plays, through: :likes, source: :play
+  has_many :like_plays, through: :likes, source: :play
 
   with_options presence: true do
     validates :nickname, length: { maximum: 20, message: 'は20文字以内で入力してください' }
@@ -31,7 +31,7 @@ class User < ApplicationRecord
   belongs_to :main_play_area
 
   def already_liked?(play)
-    likes.exists?(play_id: play.id)
+    self.likes.exists?(play_id: play.id)
   end
 
   def update_without_current_password(params, *options)

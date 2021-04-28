@@ -5,7 +5,6 @@ class Play < ApplicationRecord
   has_one_attached :image
   has_many :comments, dependent: :destroy
   has_many :likes
-  has_many :liked_users, through: :likes, source: :user
 
   with_options presence: { message: 'を入力してください' } do
     validates :title
@@ -19,7 +18,7 @@ class Play < ApplicationRecord
   end
 
   def liked_by?(user)
-    likes.where(user_id: user.id).exists?
+    self.likes&.where(user_id: user.id).exists?
   end
 
   extend ActiveHash::Associations::ActiveRecordExtensions
