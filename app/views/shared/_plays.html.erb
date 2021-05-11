@@ -29,6 +29,11 @@
         </div>
       </div>
     </div>
+    <div class="card-like">
+      <div id="like-btn-<%= plays.id %>">
+        <%= render partial: 'shared/like', locals: {player: plays} %>
+      </div>
+    </div>
     <p class="card-time">
       <%="from "%><%= l plays.created_at, format: :short %>
     </p>

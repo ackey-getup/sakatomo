@@ -14,7 +14,7 @@ class PlaysController < ApplicationController
   def create
     @play = Play.new(play_params)
     if @play.save
-      redirect_to playzones_path
+      redirect_to list_path
     else
       render :new
     end
@@ -30,17 +30,22 @@ class PlaysController < ApplicationController
 
   def update
     if @play.update(play_params)
-      redirect_to playzones_path
+      redirect_to list_path
     else
       render :edit
     end
   end
 
   def destroy
-    redirect_to playzones_path if @play.destroy
+    redirect_to list_path if @play.destroy
   end
 
   def help
+  end
+
+  def list
+    @plays = Play.all.order('created_at DESC')
+    @like = Like.new
   end
 
   private

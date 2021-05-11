@@ -30,7 +30,7 @@ RSpec.describe 'プレー投稿', type: :system do
         # 送信するとplayモデルのカウントが1上がることを確認する
         expect { find('input[name="commit"]').click }.to change { Play.count }.by(1)
         # 一覧ページに遷移する
-        expect(current_path).to eq(playzones_path)
+        expect(current_path).to eq(list_path)
         # 一覧には先ほど投稿した内容が存在することを確認する
         expect(page).to have_link("#{@play.title}@#{@play.place}", href: play_path(@plays.ids))
       end
@@ -62,7 +62,7 @@ RSpec.describe 'プレー投稿', type: :system do
         find('input[name="commit"]').click
         expect(current_path).to eq(root_path)
         # プレー1に「編集」ボタンがあることを確認する
-        visit playzones_path
+        visit list_path
         visit play_path(@play1)
         expect(page).to have_link '編集', href: edit_play_path(@play1)
         # 編集ページへ遷移する
@@ -83,7 +83,7 @@ RSpec.describe 'プレー投稿', type: :system do
         # 編集してもplayモデルのカウントは変わらないことを確認する
         expect { find('input[name="commit"]').click }.to change { Play.count }.by(0)
         # 一覧ページには先ほど変更した内容のプレーが存在することを確認する（テキスト）
-        visit playzones_path
+        visit list_path
         expect(page).to have_link(@play1.title.to_s, href: play_path(@play1))
       end
     end
@@ -129,7 +129,7 @@ RSpec.describe 'プレー投稿', type: :system do
         # 投稿を削除するとレコードの数が1減ることを確認する
         expect { page.find_link('削除', href: play_path(@play1)).click }.to change { Play.count }.by(-1)
         # 一覧ページに遷移する
-        visit playzones_path
+        visit list_path
         # 一覧ページにはプレー1の内容が存在しないことを確認する
         expect(page).to have_no_content(@play1)
       end
